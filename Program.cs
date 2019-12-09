@@ -1,0 +1,92 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Matemax
+{
+    class Matemax_2000
+    {
+        static void Main(string[] args)
+        {
+            int q, c, d, e;
+            double a, b, wynik;
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("Matemax 2000");
+                Console.WriteLine("1. Potęgowanie");
+                Console.WriteLine("2. Pierwiastkowanie");
+                Console.WriteLine("3. Wartość Bezwględna");
+                Console.WriteLine("4. Zaokrągląnie Liczb po przecinku");
+                Console.WriteLine("5. Dzielenie z resztą");
+                Console.WriteLine("0. Wyjście z programu");
+                Console.WriteLine("Podaj numer opcji, którą wybierasz:");
+                q = Convert.ToInt32(Console.ReadLine());
+
+                switch (q)
+                {
+                    case 0:
+                        break;
+                    case 1:
+                        Console.WriteLine("Podaj Liczbę:");
+                        a = Convert.ToDouble(Console.ReadLine());
+                        Console.WriteLine("Do której potęgi:");
+                        b = Convert.ToDouble(Console.ReadLine());
+                        wynik = Math.Pow(a, b);
+                        Console.WriteLine("Liczba {0} podniesiona do potęgi {1} wynosi:{2}", a, b, wynik);
+                        Console.WriteLine("Wciśnij dowolny klawisz by kontynuować");
+                        Console.ReadKey();
+                        break;
+                    case 2:
+                        Console.WriteLine("Podaj Liczbę:");
+                        a = Convert.ToDouble(Console.ReadLine());
+                        wynik = Math.Sqrt(a);
+                        Console.WriteLine("Wynik wynosi:{0}", wynik);
+                        Console.WriteLine("Wciśnij dowolny klawisz by kontynuować");
+                        Console.ReadKey();
+                        break;
+                    case 3:
+                        Console.WriteLine("Podaj Liczbę:");
+                        a = Convert.ToDouble(Console.ReadLine());
+                        wynik = Math.Abs(a);
+                        Console.WriteLine("Wartość bezwględna liczby {0}, wynosi:{1}", a, wynik);
+                        Console.WriteLine("Wciśnij dowolny klawisz by kontynuować");
+                        Console.ReadKey();
+                        break;
+                    case 4:
+                        Console.WriteLine("Podaj Liczbę:");
+                        a = Convert.ToDouble(Console.ReadLine());
+                        Console.WriteLine("Do ilu miejsc po przecinku zaokrąglić:");
+                        c = Convert.ToInt16(Console.ReadLine());
+                        wynik = Math.Round(a, c);
+                        Console.WriteLine("Zaokrąglenie ma postać:{0}", wynik);
+                        Console.WriteLine("Wciśnij dowolny klawisz by kontynuować");
+                        Console.ReadKey();
+                        break;
+                    case 5:
+                        Console.WriteLine("Podaj Liczbę:");
+                        c = Convert.ToInt16(Console.ReadLine());
+                        Console.WriteLine("Podaj Dzielnik:");
+                        d = Convert.ToInt16(Console.ReadLine());
+                        if (d != 0)
+                        {
+                            wynik = c / d;
+                            Math.DivRem(c, d, out (e));
+                            Console.WriteLine("Wynik wynosi:{0} reszta:{1}", wynik, e);
+                            Console.WriteLine("Wciśnij dowolnu klawisz by kontynuować");
+                            Console.ReadKey();
+                        }
+                        else
+                        {
+                            Console.WriteLine("Nie można dzielić przez zero");
+                            Console.WriteLine("Wciśnij dowolny klawisz by kontynuować");
+                            Console.ReadKey();
+                        }
+                        break;
+                }
+            } while (q != 0);
+        }
+    }
+}
